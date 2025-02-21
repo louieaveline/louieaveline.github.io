@@ -1,2 +1,41 @@
-# personal-website
-A clean and responsive personal website built to showcase my projects, share information, and highlight my journey as a developer. Based on Hexo Engine, ParticleX Theme, and inspired by Argvchs blog.
+# Personal Website
+
+This is the source code for my personal website, built to showcase my projects and share information. The site is structured for simplicity, accessibility, and ease of navigation.
+
+## 📂 Project Structure
+
+- `css/`: Contains all style sheets for the website.
+- `js/`: JavaScript files responsible for dynamic features.
+- `images/`: Visual assets used throughout the site.
+- `about/`: Information about me and my background.
+- `personal-projects/`: A collection of my personal projects.
+- `index.html`: The main landing page of the website.
+
+## 💡 Features
+
+- Responsive design for all devices.
+- Project showcase section.
+- About page with personal information.
+- Simple and clean layout.
+
+## 📸 Preview
+
+### Homepage
+![Homepage Preview](./screenshots/homepage.png)
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+## 🎖️ Credits
+
+This website is based on:  
+- [Hexo Engine](https://hexo.io/pt-br/)  
+- [ParticleX Theme](https://github.com/theme-particlex/hexo-theme-particlex)  
+- [Argvchs Blog](https://github.com/argvchs)
+
+## 🔒 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
