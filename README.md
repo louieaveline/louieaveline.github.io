@@ -22,7 +22,7 @@ This is the source code for my personal website, built to showcase my projects a
 ## 📸 Preview
 
 ### Homepage
-![Homepage Preview](./screenshots/homepage.png)
+![Homepage Preview](./screenshot/homepage.png)
 
 ## 🛠️ Technologies Used
 
