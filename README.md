@@ -24,6 +24,8 @@ This is the source code for my personal website, built to showcase my projects a
 ### Homepage
 ![Homepage Preview](./screenshot/homepage.png)
 
+_Printed from the Arc browser, read more about it by [clicking here](https://louieaveline.github.io/categories/other/arc/)_
+
 ## 🛠️ Technologies Used
 
 - HTML5
