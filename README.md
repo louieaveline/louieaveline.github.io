@@ -8,7 +8,8 @@ This is the source code for my personal website, built to showcase my projects a
 - `js/`: JavaScript files responsible for dynamic features.
 - `images/`: Visual assets used throughout the site.
 - `about/`: Information about me and my background.
-- `personal-projects/`: A collection of my personal projects.
+- `categories/personal-projects/`: A collection of my personal projects.
+- `categories/other/`: Others posts.
 - `index.html`: The main landing page of the website.
 
 ## 💡 Features

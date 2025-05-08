@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Louie Aveline | Sussurros SMP</title>
+  <meta name="author" content="Louie Aveline">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <link rel="icon" href="/images/avatar.png">
+  <link rel="preconnect" href="https://s4.zstatic.net">
+  <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.loli.net">
+  <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap">
+  <script>const mixins = {}</script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script
+    src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="/js/lib/highlight.js"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script src="/js/lib/math.js"></script>
+  <script src="/js/lib/preview.js"></script>
+  <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="preconnect" href="https://static-argvchs.netlify.app">
+  <meta name="generator" content="Hexo 7.1.1">
+  <link rel="alternate" href="/atom.xml" title="Argvchs の小窝" type="application/atom+xml">
+  <link rel="alternate" href="/rss2.xml" title="Argvchs の小窝" type="application/rss+xml">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="layout">
+    <transition name="fade">
+      <div id="loading" v-show="loading">
+        <div id="loading-circle">
+          <h2>LOADING</h2>
+          <p>Loading is too slow. Please enable caching.<br>The browser disables it by default.</p><img
+            src="/images/loading.gif">
+        </div>
+      </div>
+    </transition>
+    <<div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+      <nav id="desktop-menu">
+        <a class="title" href="/"><span>Louie Aveline</span> </a><a href="/"><i class="fa-solid fa-house fa-fw"></i>
+          <span>&ensp;Home</span> </a><a href="/about"><i class="fa-solid fa-id-card fa-fw"></i>
+          <span>&ensp;About</span> </a><a href="/archives"><i class="fa-solid fa-box-archive fa-fw"></i>
+          <span>&ensp;Archives</span> </a><a href="/categories"><i class="fa-solid fa-bookmark fa-fw"></i>
+          <span>&ensp;Categories</span> </a>
+      </nav>
+      <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+          <i class="fa-solid fa-bars fa-fw"></i>
+          <span>Louie Aveline</span>
+        </div>
+        <transition name="slide">
+          <div class="items" v-show="showMenuItems">
+            <a href="/">
+              <div class="item">
+                <div style="min-width: 20px; max-width: 50px; width: 10%">
+                  <i class="fa-solid fa-house fa-fw"></i>
+                </div>
+                <div style="min-width: 100px; max-width: 150%; width: 20%">
+                  Home
+                </div>
+              </div>
+            </a><a href="/about">
+              <div class="item">
+                <div style="min-width: 20px; max-width: 50px; width: 10%">
+                  <i class="fa-solid fa-id-card fa-fw"></i>
+                </div>
+                <div style="min-width: 100px; max-width: 150%; width: 20%">
+                  About
+                </div>
+              </div>
+            </a><a href="/archives">
+              <div class="item">
+                <div style="min-width: 20px; max-width: 50px; width: 10%">
+                  <i class="fa-solid fa-box-archive fa-fw"></i>
+                </div>
+                <div style="min-width: 100px; max-width: 150%; width: 20%">
+                  Archives
+                </div>
+              </div>
+            </a><a href="/categories">
+              <div class="item">
+                <div style="min-width: 20px; max-width: 50px; width: 10%">
+                  <i class="fa-solid fa-bookmark fa-fw"></i>
+                </div>
+                <div style="min-width: 100px; max-width: 150%; width: 20%">
+                  Categories
+                </div>
+              </div>
+            </a>
+          </div>
+        </transition>
+      </nav>
+  </div>
+  <transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+  </transition>
+  <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+    <div class="article">
+      <div>
+        <h1>Sussurros SMP</h1>
+      </div>
+      <div class="info"><span class="date"><span class="icon"><i class="fa-solid fa-calendar fa-fw"></i>
+          </span>2024/4/9 - 2024/11/24</span><span class="category"><span class="icon"><i
+              class="fa-solid fa-bookmark fa-fw"></i>Personal Projects, JavaScript</span></div>
+      <div class="content" v-pre>
+
+        <h1 id="What is Sussurros SMP?"> WhispersJS 🧩</h1>
+        <h2>Breathing Life into Sussurros SMP?</h2>
+        <p>When I embarked on the journey of developing Sussurros SMP, I envisioned more than just a
+          Minecraft server; I aimed to craft an immersive world where stories unfold organically.
+          WhispersJS became the tool through which I could weave intricate narratives and automate server
+          behaviors, enhancing the roleplay experience for our close-knit community.</p>
+
+        <h2 id="What is this doing here?">The Genesis of WhispersJS</h2>
+        <p>Sussurros SMP was conceived as a private server to foster interaction among friends, with a
+          strong emphasis on roleplay. The name 'Sussurros'—meaning 'whispers' in Portuguese—captures the
+          subtle storytelling and lore that permeate our world. As the main developer, I took on the
+          responsibility of not only hosting the server but also scripting its unique behaviors using the
+          KubeJS mod.</p>
+        <p>It is also important to emphasize that, although all the codes are mine, the rest of the staff
+          team helped me with 3D models and sprites for the items.</p>
+
+        <h2 id="t3-struct">Crafting the Experience</h2>
+        <p>While the scripts I've written might seem simple at first glance, each serves a purpose in
+          enriching the gameplay:</p>
+        <p>• <strong>Automated Events:</strong> From scheduled item cleanups to dynamic world events,
+          automation ensures the server remains lively and responsive.</p>
+        <p>• <strong>Custom Items and Mechanics:</strong> Collaborating with the staff team, we've
+          introduced bespoke items and mechanics that align with our evolving lore.</p>
+        <p>• <strong>Player Engagement:</strong> Scripts that respond to player actions help maintain
+          immersion and encourage deeper engagement with the world.</p>
+
+        <h2>🤝 Collaborative Efforts</h2>
+        <p>Though I handle the scripting, the visual and conceptual aspects are a team effort. The staff's
+          contributions in creating 3D models and sprites for custom items have been invaluable, adding
+          depth and authenticity to our server's universe.</p>
+        <p>I would like to highlight, above all, my partner and great friend who brought to life most of the
+          3D models and sprites that were used throughout the project: <strong><a href="https://x.com/stonedudis">StoneDudis</a></strong></p>
+
+          <br/><h2 style="text-align: center;"><a style="color: #4A90E2;" href="https://stonedudis.carrd.co/#portifolio" target="_blank" class="inline-block px-12 py-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-2xl font-bold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out transform">
+    Check out StoneDudis's site and portfolio
+</a></h2>
+
+<br/><h2>The End of a Chapter</h2>
+        <p>Like all stories, Sussurros SMP came to a close. The project is no longer active, but WhispersJS
+          remains as a record of what we built together—code written not just for function, but for
+          feeling.</p>
+
+        <h1>What I Took from It</h1>
+
+        <p>During the development of <strong>WhispersJS</strong> for <strong>Sussurros SMP</strong>, I
+          learned a great deal about how programming and storytelling can intertwine. Some of the key
+          lessons I took away from this project include:</p>
+
+        <p><strong>How to Design Immersive Logic, Not Just Mechanics</strong>: Creating systems that not
+          only function but also build an immersive experience was a major challenge. Focusing on timed
+          events and how they could be more than just “cleanup” processes, I realized that game mechanics
+          are only one part of the experience. Creating environments and atmospheres within a Minecraft
+          server requires a more thoughtful and detailed approach. It was a process of learning to code
+          not just actions but to consider the emotions and reactions each event could evoke in players.
+        </p>
+
+        <p><strong>The Value of Clean, Reusable Scripts in Modded Environments</strong>: At first, I wrote
+          quick, results-driven code that prioritized getting things done fast. But as the server grew, I
+          quickly realized that poorly structured code became difficult to maintain. By investing more
+          time into making scripts clean, well-organized, and reusable, I learned the importance of
+          sustainable coding, especially in a modded environment like Minecraft. This required extra care
+          because mods introduce complexities—dependencies, conflicts, and performance considerations—that
+          make writing efficient and modular code crucial.</p>
+
+        <p><strong>How Storytelling and Systems Can Coexist in Code</strong>: Perhaps the most impactful
+          lesson was the integration of storytelling with programming. WhispersJS wasn’t just about
+          functionality—it had to tell a story, evoke emotions, and create an atmosphere. I learned the
+          importance of thinking about the narrative behind each line of code and how the server mechanics
+          should serve the story rather than simply existing as isolated features. Every command, event,
+          and trigger had to contribute to the world and the immersion, and this was a challenge that made
+          me see coding as a tool for creative expression.</p>
+
+        <p><strong>Resilience and Adapting to New Challenges</strong>: Like any large project, Sussurros SMP
+          presented unexpected challenges. From adapting mods to writing complex scripts that integrated
+          smoothly with the server, I learned that flexibility and patience are key when solving problems
+          and finding creative solutions. Many times, I had to adapt the code to work harmoniously with
+          the rest of the server’s systems, which gave me a sense of personal growth and resilience.</p>
+
+        <p><strong>The Power of Collaboration</strong>: Although I was responsible for the technical side,
+          the success of the project was undoubtedly due to the wonderful collaboration with the staff
+          team. The exchange of ideas on how to implement roleplay mechanics and add custom content to the
+          server was vital in making the experience richer and more unique. I learned that communication
+          and collaboration between different areas of development are essential for achieving complete
+          and successful results.</p>
+
+        <p><strong>The Unique Challenges of Modded Minecraft Development</strong>: Working with a modded
+          Minecraft server presented its own set of challenges that directly affected how I approached
+          coding. Mods introduce additional layers of complexity—whether it’s compatibility with other
+          mods, performance issues, or the need to customize scripts to interact with existing modded
+          features. Writing scripts for a modded server meant being especially cautious about the
+          interactions between mods and the server’s overall performance. It required a deeper
+          understanding of how mods operate, and how my code could work alongside them without causing
+          issues. This taught me the importance of thorough testing and consideration of the larger modded
+          ecosystem when building new features.</p>
+
+        <p>This project taught me to look at programming in a more holistic way, understanding that code is
+          not just a technical solution but also a way to tell stories, create atmospheres, and generate
+          memorable experiences. By integrating these lessons, I feel like I’ve grown not only as a
+          programmer but also as a creator and collaborator in a larger project.</p>
+
+      </div>
+    </div>
+    <footer id="footer">
+      <div id="footer-wrap">
+        <div>
+          &copy; 2022 - 2025 Louie Aveline
+          <span id="footer-icon"><i class="fa-solid fa-font-awesome fa-fw"></i> </span>&commat;louieaveline
+        </div>
+        <div>
+          Based on the
+          <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a>
+          &amp;
+          <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX
+            Theme</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <transition name="fade">
+    <div id="preview" ref="preview" v-show="previewShow">
+      <img id="preview-content" ref="previewContent" />
+    </div>
+  </transition>
+  </div>
+  <script src="/js/main.js"></script>
+  <script>
+    if (
+      (console.log("Welcome to Louie' blog!"),
+        !window.hasOwnProperty("ontouchstart"))
+    ) {
+      let t =
+        '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
+      document.body.append(
+        document.createRange().createContextualFragment(t)
+      );
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Louie Aveline | Arc Browser</title>
+    <meta name="author" content="Argvchs">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="icon" href="/images/avatar.png">
+    <link rel="preconnect" href="https://s4.zstatic.net">
+    <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+    <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap">
+    <script>const mixins = {}</script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script
+        src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="/js/lib/highlight.js"></script>
+    <script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+    <script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <script src="/js/lib/math.js"></script>
+    <script src="/js/lib/preview.js"></script>
+    <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://static-argvchs.netlify.app">
+    <meta name="generator" content="Hexo 7.1.1">
+    <link rel="alternate" href="/atom.xml" title="Argvchs の小窝" type="application/atom+xml">
+    <link rel="alternate" href="/rss2.xml" title="Argvchs の小窝" type="application/rss+xml">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>Loading is too slow. Please enable caching.<br>The browser disables it by default.</p><img
+                        src="/images/loading.gif">
+                </div>
+            </div>
+        </transition>
+        <<div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+        <nav id="desktop-menu">
+          <a class="title" href="/"><span>Louie Aveline</span> </a
+          ><a href="/"
+            ><i class="fa-solid fa-house fa-fw"></i> <span>&ensp;Home</span> </a
+          ><a href="/about"
+            ><i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span> </a
+          ><a href="/archives"
+            ><i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span> </a
+          ><a href="/categories"
+            ><i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span> </a
+          >
+        </nav>
+        <nav id="mobile-menu">
+          <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>Louie Aveline</span>
+          </div>
+          <transition name="slide"
+            ><div class="items" v-show="showMenuItems">
+              <a href="/"
+                ><div class="item">
+                  <div style="min-width: 20px; max-width: 50px; width: 10%">
+                    <i class="fa-solid fa-house fa-fw"></i>
+                  </div>
+                  <div style="min-width: 100px; max-width: 150%; width: 20%">
+                    Home
+                  </div>
+                </div></a
+              ><a href="/about"
+                ><div class="item">
+                  <div style="min-width: 20px; max-width: 50px; width: 10%">
+                    <i class="fa-solid fa-id-card fa-fw"></i>
+                  </div>
+                  <div style="min-width: 100px; max-width: 150%; width: 20%">
+                    About
+                  </div>
+                </div></a
+              ><a href="/archives"
+                ><div class="item">
+                  <div style="min-width: 20px; max-width: 50px; width: 10%">
+                    <i class="fa-solid fa-box-archive fa-fw"></i>
+                  </div>
+                  <div style="min-width: 100px; max-width: 150%; width: 20%">
+                    Archives
+                  </div>
+                </div></a
+              ><a href="/categories"
+                ><div class="item">
+                  <div style="min-width: 20px; max-width: 50px; width: 10%">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                  </div>
+                  <div style="min-width: 100px; max-width: 150%; width: 20%">
+                    Categories
+                  </div>
+                </div></a
+              >
+            </div></transition
+          >
+        </nav>
+      </div>
+      <transition name="fade"
+        ><div
+          id="menu-curtain"
+          @click="showMenuItems = !showMenuItems"
+          v-show="showMenuItems"
+        ></div
+      ></transition>
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+                <div>
+                    <h1>Arc Browser: A Fresh Approach to Web Browsing</h1>
+                </div>
+                <div class="info"><span class="date"><span class="icon"><i class="fa-solid fa-calendar fa-fw"></i>
+                        </span>May 2025</span><span class="category"><span class="icon"><i
+                                class="fa-solid fa-bookmark fa-fw"></i> Other</span><span
+                            class="tag"></span></div>
+                <div class="content" v-pre>
+                  <h2>In a landscape dominated by browsers like Chrome, Firefox, and Safari, it’s hard for a newcomer to stand out. However, Arc Browser has done just that.</h2>
+<p>Created by The Browser Company, Arc is a bold reimagining of what a web browser can be. With its sleek, modern interface and a focus on productivity, Arc aims to revolutionize the way we browse the web.</p>
+
+<h2>Arc Browser Features: A New Way to Browse</h2>
+<p>Arc doesn’t just change the look of your browser; it transforms how you interact with it. Here's a look at the standout features:</p>
+
+<h2>1. Sidebar Interface</h2>
+<p>Gone are the traditional browser tabs that line the top of your screen. Arc introduces a vertical sidebar that keeps your tabs, bookmarks, and search bar organized in a compact, easily accessible space. This approach allows for more efficient multitasking and keeps your workspace neat and clean.</p>
+
+<h2>2. Spaces and Split View</h2>
+<p>Arc introduces the concept of Spaces—virtual workspaces that you can organize by themes, projects, or any other way you see fit. Each Space can have its own set of tabs, and you can even have them arranged in a split-view layout. This means you can view up to four tabs at once, making it easier to work across different websites or projects simultaneously.</p>
+
+<h2>3. Boosts and Zaps</h2>
+<p>With Arc, you’re in full control of how websites look and behave. The Boosts feature lets you customize a website’s design, adjusting fonts, colors, and even removing specific elements like ads. Meanwhile, Zaps are designed to eliminate distractions by removing things like sidebars or comment sections, so you can stay focused on what matters.</p>
+
+<h2>4. Air Traffic Control</h2>
+<p>This feature allows you to define how links open. For instance, if you’re someone who frequently uses a particular set of websites for work or personal use, you can set specific links to open in the correct Space or even set them to open in a split-screen view automatically.</p>
+
+<h2>5. AI-Powered Tools</h2>
+<p>Arc includes integrated AI tools like Instant Links, which lets you open multiple links based on a search query without needing to go through a traditional search engine. Additionally, features like Arc Explore and Live Folders help streamline your browsing experience by enhancing how you interact with your browser’s data.</p>
+
+<h2>Arc Browser: Pros and Cons</h2>
+
+<h3>Pros</h3>
+<ul>
+    <li><strong>Innovative Interface:</strong> The sidebar and Space features are a refreshing change from traditional browsers, offering a more organized and focused browsing environment.</li>
+    <li><strong>Customization:</strong> With Boosts and Zaps, users can tailor their browsing experience by modifying websites and eliminating distractions.</li>
+    <li><strong>Productivity Boost:</strong> Features like Air Traffic Control and the Split View layout help users manage multiple tabs and projects simultaneously, making it easier to stay organized.</li>
+    <li><strong>AI Integration:</strong> Arc's use of AI tools, such as Instant Links and Arc Explore, offers smarter and more efficient browsing, helping save time and effort.</li>
+</ul>
+
+<h3>Cons</h3>
+<ul>
+    <li><strong>Learning Curve:</strong> Arc's unconventional design can take time to get used to, especially for users accustomed to traditional browsers.</li>
+    <li><strong>Higher Resource Consumption:</strong> Some users have reported that Arc can be more memory-intensive compared to other browsers.</li>
+    <li><strong>Limited Platform Availability:</strong> Currently, Arc is only available for macOS and Windows, which leaves Linux users out for the time being.</li>
+</ul>
+
+<h2>Final Thoughts: Is Arc Browser Worth It?</h2>
+<p>Arc Browser is a bold, innovative step forward in the world of web browsers. Its unique design and features make it an exciting option for users who value productivity and customization. The sidebar layout, Spaces, and AI-powered tools are game-changers for anyone looking to organize their online workflow more effectively.</p>
+
+<p>However, the unconventional interface and slightly higher resource consumption may be a turn-off for users who are looking for a lightweight, straightforward browser. That said, if you’re willing to embrace change and experiment with a new way of browsing, Arc offers a fresh and compelling alternative to traditional browsers.</p>
+
+<p>Whether you’re a developer, designer, or anyone who juggles multiple tasks online, Arc provides a set of tools that can help you stay focused and organized in ways that other browsers simply don’t.</p>
+
+<h2>Explore Arc Browser</h2>
+<p>If you’re intrigued by the features of Arc and want to see how it fits into your workflow, give it a try. It’s free to download for both macOS and Windows, and with its open, evolving platform, it’s likely to keep getting better.</p>
+
+<p><a href="https://arc.net" target="_blank">Visit the Arc Browser Official Website</a> to learn more and download the browser.</p>
+
+
+            </div>
+                <div id="comment">
+                    <div id="giscus-container" class="giscus"></div>
+                </div>
+            </div>
+            <footer id="footer">
+          <div id="footer-wrap">
+            <div>
+              &copy; 2022 - 2025 Louie Aveline
+              <span id="footer-icon"
+                ><i class="fa-solid fa-font-awesome fa-fw"></i> </span
+              >&commat;louieaveline
+            </div>
+            <div>
+              Based on the
+              <a target="_blank" rel="noopener" href="https://hexo.io"
+                >Hexo Engine</a
+              >
+              &amp;
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/theme-particlex/hexo-theme-particlex"
+                >ParticleX Theme</a
+              >
+            </div>
+          </div>
+        </footer>
+      </div>
+      <transition name="fade"
+        ><div id="preview" ref="preview" v-show="previewShow">
+          <img id="preview-content" ref="previewContent" /></div
+      ></transition>
+    </div>
+    <script src="/js/main.js"></script>
+    <script>
+      if (
+        (console.log("Welcome to Louie' blog!"),
+        !window.hasOwnProperty("ontouchstart"))
+      ) {
+        let t =
+          '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
+        document.body.append(
+          document.createRange().createContextualFragment(t)
+        );
+      }
+    </script>
+  </body>
+</html>
