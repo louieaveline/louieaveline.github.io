@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh">
   <head>
     <meta charset="utf-8" />
@@ -64,16 +64,20 @@
   </head>
   <body>
     <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>Loading is too slow. Please enable caching.<br>The browser disables it by default.</p><img
-                        src="/images/loading.gif">
-                </div>
-            </div>
-        </transition>
-        <<div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+      <transition name="fade">
+        <div id="loading" v-show="loading">
+          <div id="loading-circle">
+            <h2>LOADING</h2>
+            <p>
+              Loading is too slow. Please enable caching.<br />The browser
+              disables it by default.
+            </p>
+            <img src="/images/loading.gif" />
+          </div>
+        </div>
+      </transition>
+      <
+      <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
         <nav id="desktop-menu">
           <a class="title" href="/"><span>Louie Aveline</span> </a
           ><a href="/"
@@ -86,8 +90,8 @@
             <span>&ensp;Archives</span> </a
           ><a href="/categories"
             ><i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span> </a
-          >
+            <span>&ensp;Categories</span>
+          </a>
         </nav>
         <nav id="mobile-menu">
           <div class="title" @click="showMenuItems = !showMenuItems">
@@ -154,26 +158,33 @@
                 >JavaScript
               </a></span
             ><span
-              ><a href="/categories/personal-projects/" style="background: #ff7d73"
+              ><a
+                href="/categories/personal-projects/"
+                style="background: #ff7d73"
                 ><span class="icon"
                   ><i class="fa-solid fa-bookmark fa-fw"></i> </span
                 >Personal Projects</a
               ></span
             ><span
-            ><a href="/categories/other/" style="background: #6a9bf7"
-              ><span class="icon"
-                ><i class="fa-solid fa-bookmark fa-fw"></i> </span
-              >Other</a
-            ></span
-          >
+              ><a href="/categories/other/" style="background: #6a9bf7"
+                ><span class="icon"
+                  ><i class="fa-solid fa-bookmark fa-fw"></i> </span
+                >Other</a
+              ></span
+            >
           </div>
-          <div id="timeline-wrap" ref="timeline"> 
+          <div id="timeline-wrap" ref="timeline">
             <div class="timeline" data-title="sussurrossmp">
               <div class="timeline-tail"></div>
               <div class="timeline-content">
                 <div class="item-time">November 2024</div>
-                <a href="/categories/personal-projects/SSMP/"><h3>Sussurros SMP</h3>
-                <p>What I learned working as a developer on a Minecraft SMP server, inspired by projects like QSMP</p></a>
+                <a href="/categories/personal-projects/SSMP/"
+                  ><h3>Sussurros SMP</h3>
+                  <p>
+                    What I learned working as a developer on a Minecraft SMP
+                    server, inspired by projects like QSMP
+                  </p></a
+                >
                 <div class="info"></div>
               </div>
             </div>
@@ -181,8 +192,13 @@
               <div class="timeline-tail"></div>
               <div class="timeline-content">
                 <div class="item-time">February 2025</div>
-                <a href="/categories/personal-projects/MinecraftServerBot/"><h3>Minecraft Server Bot</h3>
-                <p>A discord bot for an smp minecraft server, with multilingual functions.</p></a>
+                <a href="/categories/personal-projects/MinecraftServerBot/"
+                  ><h3>Minecraft Server Bot</h3>
+                  <p>
+                    A discord bot for an smp minecraft server, with multilingual
+                    functions.
+                  </p></a
+                >
                 <div class="info"></div>
               </div>
             </div>
@@ -190,8 +206,15 @@
               <div class="timeline-tail"></div>
               <div class="timeline-content">
                 <div class="item-time">May 2025</div>
-                <a href="/categories/other/arc/"><h3>Arc Browser: A Fresh Approach to Web Browsing</h3>
-                <p>Created by The Browser Company, Arc is a bold reimagining of what a web browser can be.<br/>With its sleek, modern interface and a focus on productivity, Arc aims to revolutionize the way we browse the web.</p></a>
+                <a href="/categories/other/arc/"
+                  ><h3>Arc Browser: A Fresh Approach to Web Browsing</h3>
+                  <p>
+                    Created by The Browser Company, Arc is a bold reimagining of
+                    what a web browser can be.<br />With its sleek, modern
+                    interface and a focus on productivity, Arc aims to
+                    revolutionize the way we browse the web.
+                  </p></a
+                >
                 <div class="info"></div>
               </div>
             </div>
@@ -200,7 +223,7 @@
         <footer id="footer">
           <div id="footer-wrap">
             <div>
-              &copy; 2022 - 2025 Louie Aveline
+              &copy; 2022 - 2026 Louie Aveline
               <span id="footer-icon"
                 ><i class="fa-solid fa-font-awesome fa-fw"></i> </span
               >&commat;louieaveline
@@ -235,7 +258,7 @@
         let t =
           '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
         document.body.append(
-          document.createRange().createContextualFragment(t)
+          document.createRange().createContextualFragment(t),
         );
       }
     </script>

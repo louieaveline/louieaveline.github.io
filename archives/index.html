@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh">
   <head>
     <meta charset="utf-8" />
@@ -90,8 +90,8 @@
             <span>&ensp;Archives</span> </a
           ><a href="/categories"
             ><i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span> </a
-          >
+            <span>&ensp;Categories</span>
+          </a>
         </nav>
         <nav id="mobile-menu">
           <div class="title" @click="showMenuItems = !showMenuItems">
@@ -150,20 +150,24 @@
       ></transition>
       <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
         <div id="archives">
-          
           <input
             id="search-bar"
             class="input"
             placeholder="Search"
             v-model="rawSearch"
           />
-          <div id="timeline-wrap" ref="timeline"> 
+          <div id="timeline-wrap" ref="timeline">
             <div class="timeline" data-title="sussurrossmp">
               <div class="timeline-tail"></div>
               <div class="timeline-content">
                 <div class="item-time">November 2024</div>
-                <a href="/categories/personal-projects/SSMP/"><h3>Sussurros SMP</h3>
-                <p>What I learned working as a developer on a Minecraft SMP server, inspired by projects like QSMP</p></a>
+                <a href="/categories/personal-projects/SSMP/"
+                  ><h3>Sussurros SMP</h3>
+                  <p>
+                    What I learned working as a developer on a Minecraft SMP
+                    server, inspired by projects like QSMP
+                  </p></a
+                >
                 <div class="info"></div>
               </div>
             </div>
@@ -171,8 +175,13 @@
               <div class="timeline-tail"></div>
               <div class="timeline-content">
                 <div class="item-time">February 2025</div>
-                <a href="/categories/personal-projects/MinecraftServerBot/"><h3>Minecraft Server Bot</h3>
-                <p>MinecraftServerBot is a straightforward bot designed to handle a few essential tasks on a Minecraft discord server</p></a>
+                <a href="/categories/personal-projects/MinecraftServerBot/"
+                  ><h3>Minecraft Server Bot</h3>
+                  <p>
+                    MinecraftServerBot is a straightforward bot designed to
+                    handle a few essential tasks on a Minecraft discord server
+                  </p></a
+                >
                 <div class="info"></div>
               </div>
             </div>
@@ -180,8 +189,15 @@
               <div class="timeline-tail"></div>
               <div class="timeline-content">
                 <div class="item-time">May 2025</div>
-                <a href="/categories/other/arc/"><h3>Arc Browser: A Fresh Approach to Web Browsing</h3>
-                <p>Created by The Browser Company, Arc is a bold reimagining of what a web browser can be.<br/>With its sleek, modern interface and a focus on productivity, Arc aims to revolutionize the way we browse the web.</p></a>
+                <a href="/categories/other/arc/"
+                  ><h3>Arc Browser: A Fresh Approach to Web Browsing</h3>
+                  <p>
+                    Created by The Browser Company, Arc is a bold reimagining of
+                    what a web browser can be.<br />With its sleek, modern
+                    interface and a focus on productivity, Arc aims to
+                    revolutionize the way we browse the web.
+                  </p></a
+                >
                 <div class="info"></div>
               </div>
             </div>
@@ -190,7 +206,7 @@
         <footer id="footer">
           <div id="footer-wrap">
             <div>
-              &copy; 2022 - 2025 Louie Aveline
+              &copy; 2022 - 2026 Louie Aveline
               <span id="footer-icon"
                 ><i class="fa-solid fa-font-awesome fa-fw"></i> </span
               >&commat;louieaveline
@@ -225,7 +241,7 @@
         let t =
           '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
         document.body.append(
-          document.createRange().createContextualFragment(t)
+          document.createRange().createContextualFragment(t),
         );
       }
     </script>
