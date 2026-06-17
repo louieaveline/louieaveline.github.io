@@ -1,1 +1,135 @@
-function _createForOfIteratorHelper(e,r){var t="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!t){if(Array.isArray(e)||(t=_unsupportedIterableToArray(e))||r&&e&&"number"==typeof e.length){t&&(e=t);var n=0,o=function e(){};return{s:o,n:function r(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}},e:function e(r){throw r},f:o}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var a,i=!0,l=!1;return{s:function r(){t=t.call(e)},n:function e(){var r=t.next();return i=r.done,r},e:function e(r){l=!0,a=r},f:function e(){try{i||null==t.return||t.return()}finally{if(l)throw a}}}}function _unsupportedIterableToArray(e,r){if(e){if("string"==typeof e)return _arrayLikeToArray(e,r);var t={}.toString.call(e).slice(8,-1);return"Object"===t&&e.constructor&&(t=e.constructor.name),"Map"===t||"Set"===t?Array.from(e):"Arguments"===t||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)?_arrayLikeToArray(e,r):void 0}}function _arrayLikeToArray(e,r){(null==r||r>e.length)&&(r=e.length);for(var t=0,n=Array(r);t<r;t++)n[t]=e[t];return n}var app=Vue.createApp({mixins:Object.values(mixins),data:function e(){return{loading:true,hiddenMenu:false,showMenuItems:false,menuColor:false,scrollTop:0,renderers:[]}},created:function e(){var r=this;window.addEventListener("load",(function(){r.loading=false}))},mounted:function e(){window.addEventListener("scroll",this.handleScroll,true);this.render()},methods:{render:function e(){var r=_createForOfIteratorHelper(this.renderers),t;try{for(r.s();!(t=r.n()).done;){var n=t.value;n()}}catch(e){r.e(e)}finally{r.f()}},handleScroll:function e(){var r=this.$refs.homePostsWrap;var t=document.documentElement.scrollTop;if(this.scrollTop<t){this.hiddenMenu=true;this.showMenuItems=false}else this.hiddenMenu=false;if(r){if(t<=window.innerHeight-100)this.menuColor=true;else this.menuColor=false;if(t<=400)r.style.top="-"+t/5+"px";else r.style.top="-80px"}this.scrollTop=t}}});app.mount("#layout");
+function _createForOfIteratorHelper(o, allowArrayLike) {
+  var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+  if (!it) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || (allowArrayLike && o && typeof o.length === "number")) {
+      if (it) o = it;
+      var i = 0;
+      var F = function () {};
+      return {
+        s: F,
+        n: function () {
+          if (i >= o.length) return { done: true };
+          return { done: false, value: o[i++] };
+        },
+        e: function (e) { throw e; },
+        f: F
+      };
+    }
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+  var normalCompletion = true, didErr = false, err;
+  return {
+    s: function () { it = it.call(o); },
+    n: function () {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function (e) {
+      didErr = true;
+      err = e;
+    },
+    f: function () {
+      try {
+        if (!normalCompletion && it.return != null) it.return();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var min = Object.prototype.toString.call(o).slice(8, -1);
+  if (min === "Object" && o.constructor) min = o.constructor.name;
+  if (min === "Map" || min === "Set") return Array.from(o);
+  if (min === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(min)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+
+var app = Vue.createApp({
+  mixins: Object.values(mixins),
+  data: function () {
+    return {
+      loading: true,
+      hiddenMenu: false,
+      showMenuItems: false,
+      menuColor: false,
+      scrollTop: 0,
+      renderers: []
+    };
+  },
+  created: function () {
+    var self = this;
+    
+    // Safety fallback: dismiss the loading overlay after 1.5s regardless of external assets loading
+    var safetyTimeout = setTimeout(function () {
+      self.loading = false;
+    }, 1500);
+
+    var hideLoading = function () {
+      clearTimeout(safetyTimeout);
+      self.loading = false;
+    };
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      hideLoading();
+    } else {
+      window.addEventListener("DOMContentLoaded", hideLoading);
+      window.addEventListener("load", hideLoading);
+    }
+  },
+  mounted: function () {
+    window.addEventListener("scroll", this.handleScroll, true);
+    this.render();
+  },
+  methods: {
+    render: function () {
+      var it = _createForOfIteratorHelper(this.renderers), step;
+      try {
+        for (it.s(); !(step = it.n()).done; ) {
+          var fn = step.value;
+          if (typeof fn === "function") {
+            fn();
+          }
+        }
+      } catch (err) {
+        it.e(err);
+      } finally {
+        it.f();
+      }
+    },
+    handleScroll: function () {
+      var wrap = this.$refs.homePostsWrap;
+      var top = document.documentElement.scrollTop;
+      if (this.scrollTop < top) {
+        this.hiddenMenu = true;
+        this.showMenuItems = false;
+      } else {
+        this.hiddenMenu = false;
+      }
+      if (wrap) {
+        if (top <= window.innerHeight - 100) {
+          this.menuColor = true;
+        } else {
+          this.menuColor = false;
+        }
+        if (top <= 400) {
+          wrap.style.top = "-" + (top / 5) + "px";
+        } else {
+          wrap.style.top = "-80px";
+        }
+      }
+      this.scrollTop = top;
+    }
+  }
+});
+
+app.mount("#layout");
