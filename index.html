@@ -11,37 +11,44 @@
       content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
     />
     <link rel="icon" href="/images/avatar.png" />
-    <link rel="preconnect" href="https://s4.zstatic.net" />
-    <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.loli.net" />
-    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
     />
     <script>
       const mixins = {};
+      // Fallback: Force hide the loading overlay after 1.5 seconds in case Vue fails to load or mount
+      setTimeout(function() {
+        var loader = document.getElementById('loading');
+        if (loader) {
+          loader.style.display = 'none';
+        }
+      }, 1500);
     </script>
-    <script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
     />
     <script src="/js/lib/highlight.js"></script>
-    <script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-    <script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
     />
     <script src="/js/lib/math.js"></script>
     <script src="/js/lib/preview.js"></script>
-    <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="preconnect" href="https://static-argvchs.netlify.app" />
     <meta name="generator" content="Hexo 7.1.1" />
